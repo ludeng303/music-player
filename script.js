@@ -13,7 +13,7 @@ const cover = document.getElementById('cover');
 const songs = ['hey', 'summer', 'ukulele'];
 
 // Keep track of song
-let songIndex = 1;
+let songIndex = 2;
 
 // Initially load song details into DOM
 loadSong(songs[songIndex]);
@@ -37,10 +37,8 @@ function playSong() {
 // Pause song
 function pauseSong() {
   musicContainer.classList.remove('play');
-
   playBtn.querySelector('i.fas').classList.add('fa-play');
   playBtn.querySelector('i.fas').classList.remove('fa-pause');
-
 
   audio.pause();
 }
@@ -48,26 +46,26 @@ function pauseSong() {
 // Previous song
 function prevSong() {
   songIndex--;
-  
+
   if (songIndex < 0) {
     songIndex = songs.length - 1;
   }
 
   loadSong(songs[songIndex]);
-  
+
   playSong();
 }
 
 // Next song
 function nextSong() {
   songIndex++;
-  
+
   if (songIndex > songs.length - 1) {
     songIndex = 0;
   }
 
   loadSong(songs[songIndex]);
-  
+
   playSong();
 }
 
@@ -87,7 +85,7 @@ function setProgress(e) {
   audio.currentTime = (clickX / width) * duration;
 }
 
-// Event listeners 
+// Event listeners
 playBtn.addEventListener('click', () => {
   const isPlaying = musicContainer.classList.contains('play');
 
@@ -98,7 +96,7 @@ playBtn.addEventListener('click', () => {
   }
 });
 
-// Change song  
+// Change song
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
 
